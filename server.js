@@ -122,10 +122,13 @@ async function uploadToCdn(filePath) {
 
 app.post('/submit', upload.single('photo'), async (req, res) => {
   const name = req.body.name;
-  const localPhotoPath = req.file.path;
+  let photoUrl = null;
 
   try {
-    const photoUrl = await uploadToCdn(localPhotoPath);
+    if (req.file) {
+      const localPhotoPath = req.file.path;
+      photoUrl = await uploadToCdn(localPhotoPath);
+    }
 
     fs.readFile('./khodam/list.txt', 'utf8', async (err, data) => {
       if (err) {
@@ -143,7 +146,7 @@ app.post('/submit', upload.single('photo'), async (req, res) => {
       res.json({ name, khodam: randomKhodam, photoUrl, shareId });
     });
   } catch (error) {
-    res.status(500).send('Failed to upload photo');
+    res.status(500).send('Gagal memproses data');
   }
 });
 
