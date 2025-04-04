@@ -8,6 +8,42 @@
   <link rel="icon" class=js-site-favicon type=image/ico href="https://cdn.jsdelivr.net/gh/SazumiVicky/Storage@main/meow.ico">
   <meta name="description" content="Temukan Khodam Anda dengan mudah melalui website kami. Unggah foto Anda dan dapatkan hasil Khodam yang unik dan personal. Bagikan hasilnya dengan teman-teman Anda di media sosial!">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+Swal.fire({
+    title: `Khodam: ${khodam.name}`,
+    text: khodam.meaning,
+    icon: 'info',
+    confirmButtonText: 'OK',
+    background: '#fff', // Warna latar belakang popup
+    color: '#333', // Warna teks
+    confirmButtonColor: '#8c0bc8', // Warna tombol konfirmasi
+    customClass: {
+        popup: 'my-popup-class', // Kelas CSS kustom untuk popup
+        title: 'my-title-class', // Kelas CSS kustom untuk judul
+        content: 'my-content-class', // Kelas CSS kustom untuk konten
+        confirmButton: 'my-confirm-button-class' // Kelas CSS kustom untuk tombol konfirmasi
+    }
+});
+
+    .my-popup-class {
+        border-radius: 10px; /* Contoh: mengubah sudut popup */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Contoh: menambahkan bayangan */
+    }
+
+    .my-title-class {
+        color: #8312a9; /* Contoh: mengubah warna judul */
+    }
+
+    .my-content-class {
+        font-size: 16px; /* Contoh: mengubah ukuran font konten */
+    }
+
+    .my-confirm-button-class {
+        background-color: #8c0bc8; /* Contoh: mengubah warna tombol konfirmasi */
+        color: #fff; /* Mengubah warna teks tombol */
+    }
+</style>
 </head>
 <body>
   <div class="container">
@@ -18,7 +54,7 @@
       
       <label for="photo" class="custom-file-upload">Masukin Foto Kamu (Opsional)</label>
       <input type="file" id="photo" name="photo" accept="image/*">
-      
+           
       <button type="submit">Check Khodam</button>
     </form>
   </div>
